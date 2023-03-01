@@ -4,8 +4,10 @@ export interface Application {
   releaseCandidatesVersions: string[];
   tagsVersions: string[];
   wikiVersion: string;
-  /*features: {
-    name: string,
-    version: string
-  };*/
+  features: Feature[];
+}
+
+export interface Feature {
+  name: string,
+  version: string
 }
