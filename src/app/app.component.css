@@ -4,7 +4,10 @@ table {
   overflow-y: hidden;
   min-width: 500px;
 }
-th.mat-header-cell {
-  text-align: left;
-  max-width: 300px;
+th {
+  text-align: center;
+  border-bottom: 1px solid black;
+}
+td {
+  text-align: center;
 }
