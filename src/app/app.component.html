@@ -10,49 +10,53 @@
     </ng-container>
 
     <ng-container matColumnDef="releaseCandidatesVersions">
-        <th mat-header-cell *matHeaderCellDef>Release Candidates</th>
-        <td mat-cell *matCellDef="let app">
-          <mat-form-field appearance="fill">
-            <select matNativeControl>
-              <option *ngFor="let releaseCandidate of app.releaseCandidatesVersions" [value]="releaseCandidate">
-                {{releaseCandidate}}
-              </option>
-            </select>
-          </mat-form-field>
-        </td>
+      <th mat-header-cell *matHeaderCellDef>Release Candidates</th>
+      <td mat-cell *matCellDef="let app">
+        <mat-accordion>
+          <mat-expansion-panel>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                {{app.releaseCandidatesVersions[0]}}
+              </mat-panel-title>
+              <mat-panel-description>
+                <img src="../assets/check.svg">
+              </mat-panel-description>
+            </mat-expansion-panel-header>
+
+            <section *ngFor="let rc of app.releaseCandidatesVersions" [title]="rc">
+              <p>{{rc}}</p>
+              <img src="../assets/check.svg">
+            </section>
+
+          </mat-expansion-panel>
+        </mat-accordion>
+      </td>
     </ng-container>
 
     <ng-container matColumnDef="tagsVersions">
-        <th mat-header-cell *matHeaderCellDef>Tags</th>
-        <td mat-cell *matCellDef="let app">
-          <mat-form-field appearance="fill">
-            <select matNativeControl>
-              <option *ngFor="let tag of app.tagsVersions" [value]="tag">
-                {{tag}}
-              </option>
-            </select>
-          </mat-form-field>
-        </td>
+      <th mat-header-cell *matHeaderCellDef>Tags</th>
+      <td mat-cell *matCellDef="let app">
+        <mat-accordion>
+          <mat-expansion-panel>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                {{app.tagsVersions[0]}}
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+
+            <section *ngFor="let tag of app.tagsVersions" [title]="tag">
+              <p>{{tag}}</p>
+            </section>
+
+          </mat-expansion-panel>
+        </mat-accordion>
+      </td>
     </ng-container>
 
     <ng-container matColumnDef="wikiVersion">
         <th mat-header-cell *matHeaderCellDef>Wiki</th>
         <td mat-cell *matCellDef="let app"> {{app.wikiVersion}} </td>
     </ng-container>
-
-    <!--ng-container matColumnDef="features">
-        <th mat-header-cell *matHeaderCellDef>Features</th>
-        <td mat-cell *matCellDef="let app">
-          <mat-form-field appearance="fill">
-            <select matNativeControl>
-              <option *ngFor="let feature of app.features" [value]="feature.name">
-                {{feature.name + ' ' + feature.version}}
-              </option>
-            </select>
-          </mat-form-field>
-        </td>
-    </ng-container-->
-
 
     <ng-container matColumnDef="features">
       <th mat-header-cell *matHeaderCellDef>Features</th>
@@ -65,11 +69,13 @@
               </mat-panel-title>
               <mat-panel-description>
                 {{app.features[0].version}}
+                <img src="../assets/check.svg">
               </mat-panel-description>
             </mat-expansion-panel-header>
 
             <section *ngFor="let feature of app.features" [title]="feature.name">
-              <p>{{feature.name}} {{feature.version}}</p>
+              <p><span>{{feature.name}}</span> <span>{{feature.version}}</span></p>
+              <img src="../assets/check.svg">
             </section>
 
           </mat-expansion-panel>

@@ -11,3 +11,18 @@ th {
 td {
   text-align: center;
 }
+td[mat-cell] {
+  padding: 1em;
+}
+section {
+  display: flex;
+  text-align: left;
+  align-items: center;
+  justify-content: space-between;
+}
+section p {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+}
